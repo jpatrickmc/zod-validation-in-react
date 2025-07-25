@@ -1,5 +1,6 @@
 import { email, z } from 'zod';
 import './App.css';
+import { getUsers } from './api/api';
 
 const userSchema = z.object({
   firstName: z.string(),
@@ -34,6 +35,8 @@ if (userResult.success) {
   // Handle validation errors
   console.error(userResult.error);
 }
+
+getUsers({ offset: 0 });
 
 export default function App() {
   return (
